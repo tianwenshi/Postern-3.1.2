@@ -64,9 +64,9 @@ public abstract class ControllerBase {
         parameters.setProxyPort(extras.getString("proxyport"));
         parameters.setPhoneId(extras.getString("phoneid"));
         parameters.setTargetPkg(extras.getString("targetpkg"));
-        String callbackUrl = new String(Base64.decode(extras.getString("callbackurl"), Base64.DEFAULT));
-        callbackUrl = callbackUrl.replaceAll("=", "_");
-        parameters.setCallbackUrl(callbackUrl);
+//        String callbackUrl = new String(Base64.decode(extras.getString("callbackurl"), Base64.DEFAULT));
+//        callbackUrl = callbackUrl.replaceAll("=", "_");
+        parameters.setCallbackUrl("");
 
         String[] nameArray = parameters.getProxyName().split("-");
         String country = nameArray[nameArray.length - 1];
@@ -81,7 +81,7 @@ public abstract class ControllerBase {
 
     public void beginOperate() {
         //获取信息
-        String phoneData = requestPhoneData(parameters.getPhoneId());
+        String phoneData = "test";//requestPhoneData(parameters.getPhoneId());
 
         if (phoneData == null) {
             httpRequest(parameters.getCallbackUrl(), 2, "request phone data error");
